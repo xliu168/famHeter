@@ -1,0 +1,186 @@
+warning: in the working copy of 'README.md', LF will be replaced by CRLF the next time Git touches it
+[1mdiff --git a/README.md b/README.md[m
+[1mindex 5c102b9..7de9192 100644[m
+[1m--- a/README.md[m
+[1m+++ b/README.md[m
+[36m@@ -13,34 +13,34 @@[m [mpedigree-based nuclear relatedness, maternal-lineage correlation, or both.[m
+ ```text[m
+ famHeter/[m
+ ├── R/[m
+[31m-│   ├── prepScores\_glmm\_git.R[m
+[31m-│   └── simulation\_helpers.R[m
+[32m+[m[32m│   ├── prepScores\\\_glmm\\\_git.R[m
+[32m+[m[32m│   └── simulation\\\_helpers.R[m
+ ├── examples/[m
+[31m-│   └── minimal\_example.R[m
+[32m+[m[32m│   └── minimal\\\_example.R[m
+ ├── simulation/[m
+[31m-│   ├── 00\_generate\_common\_inputs.R[m
+[31m-│   ├── 01\_generate\_null.R[m
+[31m-│   ├── 02\_run\_null\_tests.R[m
+[31m-│   ├── 03\_generate\_power.R[m
+[31m-│   ├── 04\_run\_power\_tests.R[m
+[31m-│   └── 99\_save\_session\_info.R[m
+[31m-├── REPRODUCIBILITY\_NOTES.md[m
+[32m+[m[32m│   ├── 00\\\_generate\\\_common\\\_inputs.R[m
+[32m+[m[32m│   ├── 01\\\_generate\\\_null.R[m
+[32m+[m[32m│   ├── 02\\\_run\\\_null\\\_tests.R[m
+[32m+[m[32m│   ├── 03\\\_generate\\\_power.R[m
+[32m+[m[32m│   ├── 04\\\_run\\\_power\\\_tests.R[m
+[32m+[m[32m│   └── 99\\\_save\\\_session\\\_info.R[m
+[32m+[m[32m├── REPRODUCIBILITY\\\_NOTES.md[m
+ ├── .gitignore[m
+ └── README.md[m
+ ```[m
+ [m
+[31m-`prepScores\_glmm\_git.R` is the custom score-preparation function used by the[m
+[31m-family-based Burden and SKAT analyses. `simulation\_helpers.R` contains shared[m
+[32m+[m[32m`prepScores\\\_glmm\\\_git.R` is the custom score-preparation function used by the[m
+[32m+[m[32mfamily-based Burden and SKAT analyses. `simulation\\\_helpers.R` contains shared[m
+ simulation and testing functions, including the equal-weight ACAT-O combination.[m
+ [m
+ ## [m
+ [m
+[31m-## Minimal runnable example[m
+[32m+[m[32m## Example[m
+ [m
+ From the repository root, run:[m
+ [m
+ ```bash[m
+[31m-Rscript examples/minimal\_example.R[m
+[32m+[m[32mRscript examples/minimal\\\_example.R[m
+ ```[m
+ [m
+ The example uses a small synthetic pedigree and synthetic heteroplasmy data and[m
+[36m@@ -61,14 +61,14 @@[m [mConcordance Rate (HCR) can be set to 0.1, 0.2, 0.3, 0.4, or 0.5.[m
+ [m
+ The maternal-lineage matrix uses:[m
+ [m
+[31m-* `M\_ij = 1` for individuals in the same short-span maternal lineage;[m
+[31m-* `M\_ij = 0` otherwise.[m
+[32m+[m[32m* `M\\\_ij = 1` for individuals in the same short-span maternal lineage;[m
+[32m+[m[32m* `M\\\_ij = 0` otherwise.[m
+ [m
+ Three polygenic architectures are supported:[m
+ [m
+ * `balanced`: total mitochondrial contribution 0.25, nuclear contribution 0.25;[m
+[31m-* `nuclear\_dominant`: total mitochondrial contribution 0.05, nuclear contribution 0.45;[m
+[31m-* `mitochondrial\_dominant`: total mitochondrial contribution 0.45, nuclear contribution 0.05.[m
+[32m+[m[32m* `nuclear\\\_dominant`: total mitochondrial contribution 0.05, nuclear contribution 0.45;[m
+[32m+[m[32m* `mitochondrial\\\_dominant`: total mitochondrial contribution 0.45, nuclear contribution 0.05.[m
+ [m
+ For power simulations, 80% of observed heteroplasmic variants are selected as causal.[m
+ The causal heteroplasmy component explains 1.5% of variance for continuous traits and[m
+[36m@@ -83,14 +83,14 @@[m [mRun all commands from the repository root.[m
+ ### 1\. Generate common inputs[m
+ [m
+ ```bash[m
+[31m-Rscript simulation/00\_generate\_common\_inputs.R[m
+[32m+[m[32mRscript simulation/00\\\_generate\\\_common\\\_inputs.R[m
+ ```[m
+ [m
+ ### 2\. Generate null phenotypes[m
+ [m
+ ```bash[m
+[31m-Rscript simulation/01\_generate\_null.R continuous balanced 10000 0.015[m
+[31m-Rscript simulation/01\_generate\_null.R binary balanced 10000 0.03[m
+[32m+[m[32mRscript simulation/01\\\_generate\\\_null.R continuous balanced 10000 0.015[m
+[32m+[m[32mRscript simulation/01\\\_generate\\\_null.R binary balanced 10000 0.03[m
+ ```[m
+ [m
+ ### 3\. Run null tests[m
+[36m@@ -98,8 +98,8 @@[m [mRscript simulation/01\_generate\_null.R binary balanced 10000 0.03[m
+ Example for HCR = 0.3:[m
+ [m
+ ```bash[m
+[31m-Rscript simulation/02\_run\_null\_tests.R continuous balanced 0.3 10000 0.015[m
+[31m-Rscript simulation/02\_run\_null\_tests.R binary balanced 0.3 10000 0.03[m
+[32m+[m[32mRscript simulation/02\\\_run\\\_null\\\_tests.R continuous balanced 0.3 10000 0.015[m
+[32m+[m[32mRscript simulation/02\\\_run\\\_null\\\_tests.R binary balanced 0.3 10000 0.03[m
+ ```[m
+ [m
+ The output includes conventional Burden/SKAT, family-based Burden/SKAT under the[m
+[36m@@ -107,19 +107,19 @@[m [mthree correlation-adjustment strategies, and the four corresponding ACAT-O p-val[m
+ [m
+ ### 4\. Generate alternative phenotypes[m
+ [m
+[31m-The `causal\_sign` argument gives the proportion of causal variants with the same[m
+[32m+[m[32mThe `causal\\\_sign` argument gives the proportion of causal variants with the same[m
+ direction of effect. Manuscript settings include 1.00, 0.80, 0.70, 0.60, 0.55, and 0.50.[m
+ [m
+ ```bash[m
+[31m-Rscript simulation/03\_generate\_power.R continuous balanced 0.3 1.00 10000 0.015[m
+[31m-Rscript simulation/03\_generate\_power.R binary balanced 0.3 1.00 10000 0.03[m
+[32m+[m[32mRscript simulation/03\\\_generate\\\_power.R continuous balanced 0.3 1.00 10000 0.015[m
+[32m+[m[32mRscript simulation/03\\\_generate\\\_power.R binary balanced 0.3 1.00 10000 0.03[m
+ ```[m
+ [m
+ ### 5\. Run empirical-size-corrected power analyses[m
+ [m
+ ```bash[m
+[31m-Rscript simulation/04\_run\_power\_tests.R continuous balanced 0.3 1.00 10000 0.015 0.001[m
+[31m-Rscript simulation/04\_run\_power\_tests.R binary balanced 0.3 1.00 10000 0.03 0.001[m
+[32m+[m[32mRscript simulation/04\\\_run\\\_power\\\_tests.R continuous balanced 0.3 1.00 10000 0.015 0.001[m
+[32m+[m[32mRscript simulation/04\\\_run\\\_power\\\_tests.R binary balanced 0.3 1.00 10000 0.03 0.001[m
+ ```[m
+ [m
+ For Burden and SKAT, the method-specific critical value is the 99.9th percentile of[m
+[36m@@ -127,56 +127,19 @@[m [mthe corresponding empirical null test-statistic distribution at `alpha = 0.001`.[m
+ For ACAT-O, significance is represented by smaller p-values, so the corresponding[m
+ empirical threshold is the 0.1th percentile of the null ACAT-O p-value distribution.[m
+ [m
+[31m-## Quick smoke test[m
+[31m-[m
+[31m-Before launching 10,000 replicates, use a small number of replicates to confirm that[m
+[31m-paths, package loading, parallel execution, and model fitting work correctly:[m
+[31m-[m
+[31m-```bash[m
+[31m-Rscript simulation/00\_generate\_common\_inputs.R[m
+[31m-[m
+[31m-Rscript simulation/01\_generate\_null.R continuous balanced 2 0.015[m
+[31m-Rscript simulation/02\_run\_null\_tests.R continuous balanced 0.3 2 0.015[m
+[31m-[m
+[31m-Rscript simulation/03\_generate\_power.R continuous balanced 0.3 1.00 2 0.015[m
+[31m-Rscript simulation/04\_run\_power\_tests.R continuous balanced 0.3 1.00 2 0.015 0.001[m
+[31m-```[m
+[31m-[m
+[31m-These two-replicate runs are only pipeline checks and are not meaningful estimates of[m
+[31m-Type I error or power.[m
+[31m-[m
+ ## Parallel execution[m
+ [m
+ On SGE/SCC, the scripts use `NSLOTS` when available. For local testing, they default[m
+ to at most four cores. The number of workers can also be set explicitly:[m
+ [m
+ ```bash[m
+[31m-export SIM\_NCORES=2[m
+[31m-```[m
+[31m-[m
+[31m-## Software versions[m
+[31m-[m
+[31m-After the final validated run, save the software environment:[m
+[31m-[m
+[31m-```bash[m
+[31m-Rscript simulation/99\_save\_session\_info.R sessionInfo.txt[m
+[32m+[m[32mexport SIM\\\_NCORES=2[m
+ ```[m
+ [m
+[31m-Commit `sessionInfo.txt` to the repository so the R and package versions used for the[m
+[31m-public reproducibility code are documented.[m
+[31m-[m
+ ## Main R dependencies[m
+ [m
+ The workflow uses `GMMAT`, `seqMeta`, `kinship2`, `Matrix`, `MASS`, `bdsmatrix`,[m
+ `foreach`, and `doParallel`.[m
+ [m
+[31m-## Reproducibility note[m
+[31m-[m
+[31m-The public simulation scripts are reorganized versions of the manuscript analysis code.[m
+[31m-SCC-specific absolute paths and duplicated scenario-specific scripts have been replaced[m
+[31m-by repository-relative paths and command-line parameters.[m
+[31m-[m
+[31m-## License[m
+[31m-[m
+[31m-Add the license selected by the study authors before the final public release.[m
+[32m+[m[32m##[m[41m [m
+ [m

@@ -1,0 +1,28 @@
+# R session files
+.Rhistory
+.RData
+.Ruserdata
+
+# RStudio
+.Rproj.user/
+*.Rproj
+
+# macOS / Windows
+.DS_Store
+Thumbs.db
+
+# Generated simulation outputs
+results/
+
+# Scheduler / log files
+*.o[0-9]*
+*.e[0-9]*
+*.po[0-9]*
+*.pe[0-9]*
+*.out
+*.log
+
+# Local archives / scratch
+*.zip
+tmp/
+scratch/
